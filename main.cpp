@@ -1,4 +1,3 @@
-#include <iostream>
 #include "bf.hpp"
 
 int main()

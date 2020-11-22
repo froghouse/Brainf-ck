@@ -85,7 +85,7 @@ void BF::parse(const char* prg)
 
 void BF::execute()
 {
-    std::vector<BF::Instruction>::iterator ip = std::begin(BF::instructions);
+    auto ip = std::begin(BF::instructions);
     BF::pointer = 0;
     std::size_t loop_nesting = 0;
 
