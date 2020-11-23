@@ -7,6 +7,8 @@ Brainf-ck is an interpreter written in C++ that parses and executes code written
 To build solution run:
 `$ ./configure && make`
 
+If the above commands fail you might need to run `$ autoreconf -i` before retrying the above.
+
 Added som example code to test the interpreter. The code was copied from https://github.com/brain-lang/brainfuck/tree/master/examples.
 To run the example hello-world.bf run:
 `$ bf example/hello-world.bf`
