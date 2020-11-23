@@ -1,2 +1,2 @@
 language = "cpp"
-run = "autoreconf -i; ./configure && make; echo \"\n\n============= PROGRAM OUTPUT ==============\"; ./bf; echo \"========== END OF PROGRAM OUTPUT ==========\n\n\"; make distclean"
+run = "autoreconf -i; ./configure && make; echo \"\n\n============= PROGRAM OUTPUT ==============\"; ./bf examples/hello-world.bf; echo \"========== END OF PROGRAM OUTPUT ==========\n\n\"; make distclean"
