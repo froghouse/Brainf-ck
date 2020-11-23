@@ -288,6 +288,8 @@ top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 AM_CXXFLAGS = -std=c++17
+ACLOCAL_AMFLAGS = -I m4 --install
+EXTRA_DIST = m4/NOTES
 bf_SOURCES = main.cpp bf.cpp bf.h
 all: config.h
 	$(MAKE) $(AM_MAKEFLAGS) all-am
