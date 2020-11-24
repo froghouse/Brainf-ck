@@ -6,7 +6,7 @@
 3. A new branch should be created for a new feature of the code.
 4. A new branch should be created for local development of the code.
 
-![Branching Strategy](https://i.imgur.com/b3WtqmL.png Branching Strategy)
+![Branching Strategy](https://i.imgur.com/b3WtqmL.png)
 
 The above ASCII art describes visually how branching should look.
 Each commit to the master increases the version number (e.g. 1.0 to 2.0)
