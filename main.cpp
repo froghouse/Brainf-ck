@@ -1,4 +1,3 @@
-#include "config.h"
 #include "bf.hpp"
 #include <fstream>
 #include <iostream>
