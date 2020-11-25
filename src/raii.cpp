@@ -1,9 +1,29 @@
 #include "raii.hpp"
+#include <exception>
+#include <filesystem>
+
+bool file_exists(const std::filesystem::path& p, std::filesystem::file_status s = std::filesystem::file_status{})
+{
+    if(std::filesystem::status_known(s) ? std::filesystem::exists(s) : std::filesystem::exists(p))
+    {
+        return true;
+    }
+
+    return false;
+}
 
 RAII::File::File(const std::string_view fname)
 {
     file_name = fname;
-    ifs.open(std::string(file_name).c_str());
+
+    if(file_exists(std::string(file_name).c_str()))
+    {
+        ifs.open(std::string(file_name).c_str());
+    }
+    else
+    {
+        throw std::invalid_argument(std::string(file_name) + " does not exist.");
+    }
 }
 
 RAII::File::~File()
@@ -28,7 +48,14 @@ std::string RAII::File::read()
             ofs.close();
         }
 
-        ifs.open(std::string(file_name).c_str());
+        if(file_exists(std::string(file_name).c_str()))
+        {
+            ifs.open(std::string(file_name).c_str());
+        }
+        else
+        {
+            throw std::invalid_argument(std::string(file_name) + " does not exist.");
+        }
     }
 
     std::string tmp;
@@ -51,8 +78,14 @@ void RAII::File::write(const std::string_view data)
             ifs.close();
         }
 
-
-        ofs.open(std::string(file_name).c_str());
+        if(file_exists(std::string(file_name).c_str()))
+        {
+            ofs.open(std::string(file_name).c_str());
+        }
+        else
+        {
+            throw std::invalid_argument(std::string(file_name) + " does not exist.");
+        }
     }
 
     ofs << std::string(data).c_str();
